@@ -1,6 +1,6 @@
 import numpy as np
 
-a = np.array([1,2,3], int)
+a = np.array([1,2,4], int)
 b = np.array([[1.3,4.5,4.],[3.2,5.6,6.]], dtype="float16")
 print(b)
 
