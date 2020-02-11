@@ -1,0 +1,69 @@
+
+# Reading and writing files
+#  open(filename, mode)
+f = open('myfile.txt') # 'r'(can be omitted) file will only be read
+print(f.read())
+print(f.closed) #False
+f.close() 
+print(f.closed) #True (already closed)
+# print(f.read()) #error
+
+
+# The advantage is that the file is properly closed after its suite finishes,
+# even if an exception is raised at some point.
+print('--------with--------')
+with open('myfile.txt') as f:
+	read_data = f.read()
+
+print(f.closed) #True (already closed)
+print(read_data)
+# If you’re not using the with keyword, then you should call f.close() to close the file and 
+# immediately free up any system resources used by it. 
+
+
+print('--------Methods--------')
+f = open('myfile.txt')
+print(f.readline()) #my data
+print(f.readline()) #second line
+print(f.readline()) #the last line
+f.close()
+
+f = open('myfile.txt')
+print(f.readlines()) # returns the list of all lines: ['my data\n', 'second line\n', 'the last line']
+f.close()
+
+f = open('myfile.txt')
+print(f.readline()) #my data
+print(f.readlines()) # returns the list of all lines: ['second line\n', 'the last line'] - without first line!!!!
+f.close()
+
+print('------ for ... in ...------')
+f = open('myfile.txt')
+for line in f:
+	print(line, end=' ')
+f.close()
+
+print('\n\n')
+f = open('myfile.txt')
+print(list(f)) #the same as f.readlines()
+print(f.readlines()) #[] (already after list(f))
+f.close()
+
+print('----- Writing ------')
+f = open('myfile2.txt', 'w') #created new file
+f.write('new line')
+f.close()
+
+f = open('myfile2.txt', 'w') 
+f.write('I want to overwrite this file')
+f.close()
+f = open('myfile2.txt', 'r')
+print(f.read())
+
+
+print('------appending------')
+f = open('myfile2.txt', 'a') 
+f.write('\nI want to add this line')
+f.close()
+f = open('myfile2.txt', 'r')
+print(f.read())

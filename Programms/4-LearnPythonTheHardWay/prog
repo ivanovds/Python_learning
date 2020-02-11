@@ -1,0 +1,47 @@
+# приведение типов 
+#При делении Python 3 может преобразовать целое число 
+#в число с плавающей точкой (в Python 2 такой функции нет).
+v1 = 4
+v2 = 11
+print(v1,' ',v2)
+print(v2/v1)
+
+# print
+# To use formatted string literals, begin a string with f or F before the opening quotation mark 
+# or triple quotation mark. Inside this string, you can write a Python expression between { and } 
+# characters that can refer to variables or literal values.
+name = 'Daniil'
+print(f'Hello {name}!')
+print("I have 1 {} and 3 {}".format('pen', 'pencil'))
+print("I have 1 {} and 3 {}".format('pencil', 'pen'))
+print("I have 1 {1} and 3 {0}".format('pencil', 'pen'))
+
+
+print ("Its fleece was white as %s." % 'snow') # python2 style
+
+# %r vs %s
+# %r использует функцию repr для встроенных типов включает в себя кавычки и все специальные символы экранируются
+# %s использует функцию str (симметрично %r)
+import datetime
+d = datetime.date.today()
+print(str(d))
+# '2011-05-14'
+print(repr(d))
+# 'datetime.date(2011, 5, 14)'
+
+# %d - decimal
+
+# Something that the modulo operator ( % ) can't do, afaik:
+tu = (12,45,22222,103,6)
+print ('{0} {2} {1} {2} {3} {2} {4} {2}'.format(*tu))
+
+print("""
+first line
+second one
+and the last one
+""")
+
+# \ backslash
+print('I am 6\'2 tall.')
+print("\tI'm tabbed in.")
+print("I'm split\non a line.")
